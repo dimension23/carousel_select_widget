@@ -1,0 +1,16 @@
+name: carousel_select_widget
+description: An iOS style alternative to android dropdown - with horizontal and vertical scroll mode.
+version: 0.0.1
+author: Prashant Patel <prashant.patel@gmx.com>
+homepage: 
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
