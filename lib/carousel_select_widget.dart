@@ -1,7 +1,8 @@
+library carousel_select_widget;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-enum InitialPosition {start, center, end}
 enum ScrollDirection {horizontal, vertical}
 int _listRotation;
 int _listItemRotation;
@@ -9,11 +10,9 @@ int _listItemRotation;
 class CarouselSelect extends StatefulWidget {
   // properties
   final Function(String) onChanged;
-  final InitialPosition initialPosition;
+  final int initialPosition;
   final ScrollDirection scrollDirection;
   final Color backgroundColor;
-  final bool showCursor;
-  final Color cursorColor;
   final Color activeItemTextColor;
   final Color passiveItemsTextColor;
   final double activeItemFontSize;
@@ -24,12 +23,10 @@ class CarouselSelect extends StatefulWidget {
   // contructor
   CarouselSelect(
       {@required this.valueList,
-        @required this.onChanged,
-        this.initialPosition = InitialPosition.center,
+        @required this.initialPosition,
         @required this.scrollDirection,
+        @required this.onChanged,
         this.backgroundColor = Colors.white,
-        this.showCursor = true,
-        this.cursorColor = Colors.red,
         this.activeItemTextColor = Colors.blue,
         this.passiveItemsTextColor = Colors.grey,
         this.activeItemFontSize = 20.0,
@@ -63,20 +60,8 @@ class _CarouselSelectState extends State<CarouselSelect> {
   }
 
   setScrollController() {
-    //sets initial scroll positon - start, end, or center
-
-    int initialItem;
-    switch (widget.initialPosition) {
-      case InitialPosition.start:
-        initialItem = 0;
-        break;
-      case InitialPosition.center:
-        initialItem = (valueMap.length ~/ 2);
-        break;
-      case InitialPosition.end:
-        initialItem = valueMap.length - 1;
-        break;
-    }
+    //sets initial scroll positon to center
+    int initialItem = widget.initialPosition;
 
     // sets the selector to initial posti
     _scrollController = FixedExtentScrollController(initialItem: initialItem);
