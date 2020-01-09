@@ -4,4 +4,4 @@ A sample appliceation to demonstrate Carousel Select Widget.
 
 ## Demo 
 
-![](./images/carousel_select_demo.gif =400x822)
+<a href="url"><img src="./images/carousel_select_demo.gif" align="left" height="822" width="400" ></a>
